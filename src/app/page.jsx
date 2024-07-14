@@ -23,8 +23,6 @@ export default function Home() {
   const handleSignout = () => {
     storeSignout();
   };
-  console.log(auth)
-  console.log(auth?.members[0].name)
 
   if (!isClient) return null;
 
@@ -158,10 +156,7 @@ export default function Home() {
                               ) : (
                                 <span>{`${item.percentage}%`}</span> // Display percentage with '%' symbol if it's not a URL
                               )
-                            }
-
-
-                              
+                            } 
                             </td>
                           </tr>
                         ))}

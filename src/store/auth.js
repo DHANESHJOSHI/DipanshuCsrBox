@@ -10,7 +10,7 @@ let initialState = {
 export const useAuthStore = create()(
   devtools(
     persist(
-      (set) => ({
+      (set) => ({ 
         auth: initialState,
         signIn: (user) =>
           set(() => ({

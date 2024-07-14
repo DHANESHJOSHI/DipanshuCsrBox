@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url("/2306_30_IDL_gallery.jpg"); /* Ensure this path is correct */
   background-size: cover;
@@ -96,6 +102,8 @@ body {
     margin: 0 auto; /* Center horizontally */
   }
 }
+
+
 
 .logo img {
   display: flex;

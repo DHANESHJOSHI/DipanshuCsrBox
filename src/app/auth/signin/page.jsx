@@ -15,6 +15,8 @@ export default function LoginPage() {
 
   const router = useRouter();
   const storeSignIn = useAuthStore((state) => state.signIn);
+  
+
   const [collages, setCollages] = React.useState([]);
   const { register, handleSubmit } = useForm();
   const { InternShip, InternhandleSubmit } = useForm();
@@ -25,12 +27,11 @@ export default function LoginPage() {
   useEffect(() => {
     const fetchColleges = async () => {
       try {
-        const url = "https://script.google.com/macros/s/AKfycbzdFeQj6gX2rwWksBM5R8Ni9h1UhNispnJES3-m7iIc4hyfHbAzCrMvuduz5zR7VGih/exec";
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (data && data.collegeName && Array.isArray(data.collegeName) && data.collegeName.length > 0) {
-          const collegeNames = data.collegeName.filter(Boolean);
+        const url = "/api/GetAllcollage";
+        const response = await axios.get(url);
+        const data = await response.data;
+        if (data && data.colleges && Array.isArray(data.colleges) && data.colleges.length > 0) {
+          const collegeNames = data.colleges.filter(Boolean);
           setCollages(collegeNames.sort());        
         } else {
           console.error("No data found or data is not in the expected format");
@@ -39,8 +40,9 @@ export default function LoginPage() {
         console.error("Error fetching data or processing data:", error);
       }
     };
-
+    
     fetchColleges();
+  
   }, []);
   
   const AllColleges = collages.sort();
