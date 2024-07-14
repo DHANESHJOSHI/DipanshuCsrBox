@@ -11,6 +11,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState([]);
   const auth = useAuthStore((state) => state.auth.user);
   const [isClient, setIsClient] = useState(false);
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const { register, handleSubmit } = useForm();
   const storeSignIn = useAuthStore((state) => state.signIn);
   const updateTeamMembers = useAuthStore((state) => state.updateTeamMembers);
@@ -18,7 +19,16 @@ export default function Home() {
 
   useEffect(() => {
     setIsClient(true);
+    // Set initialLoadComplete to true after the first render
+    setInitialLoadComplete(false);
   }, []);
+
+  useEffect(() => {
+    // Reload the page only if initialLoadComplete is true
+    if (initialLoadComplete) {
+      window.location.reload();
+    }
+  }, [initialLoadComplete]);
 
   const handleSignout = () => {
     storeSignout();
@@ -134,16 +144,15 @@ export default function Home() {
                       </thead>
                       <tbody className="text-sm text-left rtl:text-right font-bold text-black dark:text-white">
                         {auth?.members?.map((item, index) => (
-                          console.log(JSON.stringify(auth.teamName)),
                           <tr
                             className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                             key={index}
                           >
                             <td className="px-6 py-4">{index + 1}</td>
                             <td className="px-6 py-4">{item.name}</td>
-                            <td className="px-6 py-4">{auth.teamName || 'No team assigned'}</td>
+                            <td className="px-6 py-4">{auth.teamName || 'No Team Name'}</td>
                             <td className="px-6 py-4">{item.number}</td>
-                            <td className="px-6 py-4">{item.uniqueID}</td>
+                            <td className="px-6 py-4">{auth.collegeName || 'No Unique ID'}</td>
                             <td className="px-6 py-4">
                             {
                               typeof item.percentage === 'string' && (item.percentage.startsWith('http://') || item.percentage.startsWith('https://')) ? (
@@ -154,8 +163,8 @@ export default function Home() {
                                   Fill This Form
                                 </button>
                               ) : (
-                                <span>{`${item.percentage}%`}</span> // Display percentage with '%' symbol if it's not a URL
-                              )
+                                <span>{`${item.percentage}%`}</span> 
+                                )
                             } 
                             </td>
                           </tr>

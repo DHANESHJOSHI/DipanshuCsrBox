@@ -63,7 +63,7 @@ export default function LoginPage() {
       // console.log("Received data:", data);
       // Assuming data contains the response in the format { success: true, data: { ... } }
       if (data.status === "success") {
-        console.log(data.data);
+        // console.log(data.data);
         storeSignIn(data.data.teamDetails);
         toast.success("Login success");
         router.push("/");
@@ -71,7 +71,7 @@ export default function LoginPage() {
         throw new Error(data.error || "Something went wrong");
       }
     } catch (error) {
-      console.log("Login failed", error);
+      // console.log("Login failed", error);
       toast.error("Login failed: " + (error.message || "Unknown Error"));
     } finally {
       setLoading(false);
