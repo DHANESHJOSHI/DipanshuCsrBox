@@ -15,6 +15,7 @@ body {
   height: 100vh;
   margin: 0;
 }
+
 @media (max-width: 1920px) {
   #IBMLogoRight{
     display: none;
@@ -63,6 +64,24 @@ body {
   margin-bottom: 5px;
 }
 
+.typewriter {
+  overflow: hidden; /* Ensures the text is hidden outside the animation area */
+  border-right: .15em solid orange; /* The cursor */
+  white-space: nowrap; /* Keeps the text on a single line */
+  margin: 0 auto; /* Centers the element */
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
 @media (max-width: 768px) {
   .login-container {
     flex-direction: column;
@@ -103,6 +122,23 @@ body {
   }
 }
 
+.typewriter {
+  overflow: hidden; /* Ensures the text is hidden outside the animation area */
+  border-right: .15em solid orange; /* The cursor */
+  white-space: nowrap; /* Keeps the text on a single line */
+  margin: 0 auto; /* Centers the element */
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
 
 
 .logo img {
@@ -167,4 +203,23 @@ body {
   .btn-primary {
     width: 100%; /* Full-width button for easier interaction */
   }
+
+  .typewriter {
+    overflow: hidden; /* Ensures the text is hidden outside the animation area */
+    border-right: .15em solid orange; /* The cursor */
+    white-space: nowrap; /* Keeps the text on a single line */
+    margin: 0 auto; /* Centers the element */
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+  
 }
