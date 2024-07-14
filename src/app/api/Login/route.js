@@ -11,7 +11,7 @@ export async function POST(request) {
 
     // Call the external API
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzdFeQj6gX2rwWksBM5R8Ni9h1UhNispnJES3-m7iIc4hyfHbAzCrMvuduz5zR7VGih/exec",
+      "https://script.google.com/macros/s/AKfycbyiQO7jHxe-hWsy4rpe-iLwKLTfLznzq6FPfqMcdU7Ur1yDmQV3-7Vr0RIJiWAMNvl7/exec",
       {
         method: "POST",
         mode: "cors",
@@ -28,7 +28,7 @@ export async function POST(request) {
     }
 
     const data = await response.json();
-
+    console.log("Received data:", data);
     return new Response(JSON.stringify({ success: true, data }), { status: 200 });
   } catch (error) {
     console.error(error);

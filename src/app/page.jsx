@@ -89,65 +89,83 @@ export default function Home() {
                       :<p className="text-[#4f5050]">{auth?.members[0].name}</p>
                     </div>
                     <div className="flex flex-row gap-2">
-                      <h4 className="text-[#002d9c] font-bold">Number </h4> :<p className="text-[#4f5050]">{auth?.members[0].number}</p>
+                      <h4 className="text-[#002d9c] font-bold">College Name </h4> :<p className="text-[#4f5050]">{auth?.members[0].collegeName}</p>
                     </div>
                     <div className="flex flex-row gap-2">
                       <h4 className="text-[#002d9c] font-bold">Completion Percentage </h4> :
-                      <p className="text-[#4f5050]">{auth?.members[0].percentage}</p>
+                      <p className="text-[#4f5050]">{auth?.members[0].percentage}%</p>
+                    </div>
+
+
+                    <div className="flex flex-row gap-8 mt-5 mb-[-8vh]">
+                      <button className="transition ease-in-out delay-150 text-sm transform hover:-translate-y-1 mt-24 md:mt-0 hover:scale-110 duration-300 py-2 px-2 md:xp-5 text-white rounded-lg bg-[#002d9c]">
+                        SUBMIT CONCEPT NOTE
+                      </button>
+                      <button className=" transition ease-in-out delay-150 text-sm transform hover:-translate-y-1 mt-24 md:mt-0 hover:scale-110 duration-300 py-2 px-2 md:xp-5 text-white rounded-lg bg-[#002d9c]">
+                      SUBMIT FINAL DELIVERABLE
+                      </button>
                     </div>
                   </div>
                 </div>
 
                 <div>
                   <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-16">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto">
                       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                           <th scope="col" className="px-6 py-3">
                             No
                           </th>
                           <th scope="col" className="px-6 py-3">
-                            Team Name
+                            Name
                           </th>
 
                           <th scope="col" className="px-6 py-3">
-                            Name
+                            Team Name
                           </th>
                           <th scope="col" className="px-6 py-3">
-                            Email
+                            Number
                           </th>
                           <th scope="col" className="px-6 py-3">
                             College
                           </th>
                           <th scope="col" className="px-6 py-3">
-                            Folder Link
+                            Course Completion
                           </th>
                         </tr>
                       </thead>
-                      {/* <tbody>
-                        {auth?.teamMembers?.map((item, index) => (
+                      <tbody className="text-sm text-left rtl:text-right font-bold text-black dark:text-white">
+                        {auth?.members?.map((item, index) => (
+                          console.log(JSON.stringify(auth.teamName)),
                           <tr
                             className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-                            key={index + 1}
+                            key={index}
                           >
                             <td className="px-6 py-4">{index + 1}</td>
-                            <td className="px-6 py-4">{item.TeamName}</td>
-                            <td className="px-6 py-4">{item.Name}</td>
-                            <td className="px-6 py-4">{item.Email}</td>
-                            <td className="px-6 py-4">{item.CollegeName}</td>
+                            <td className="px-6 py-4">{item.name}</td>
+                            <td className="px-6 py-4">{auth.teamName || 'No team assigned'}</td>
+                            <td className="px-6 py-4">{item.number}</td>
+                            <td className="px-6 py-4">{item.uniqueID}</td>
                             <td className="px-6 py-4">
-                              <button
-                                className="transition ease-in-out delay-150 text-sm transform hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 md:px-5 text-white rounded-lg bg-[#246fca]"
-                                onClick={() =>
-                                  window.open(item.FolderLink, "_blank")
-                                }
-                              >
-                                View Folder
-                              </button>
+                            {
+                              typeof item.percentage === 'string' && (item.percentage.startsWith('http://') || item.percentage.startsWith('https://')) ? (
+                                <button
+                                  className="transition ease-in-out delay-150 text-sm transform hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 md:px-5 text-white rounded-lg bg-[#246fca]"
+                                  onClick={() => window.open(item.percentage, "_blank")}
+                                >
+                                  Fill This Form
+                                </button>
+                              ) : (
+                                <span>{`${item.percentage}%`}</span> // Display percentage with '%' symbol if it's not a URL
+                              )
+                            }
+
+
+                              
                             </td>
                           </tr>
                         ))}
-                      </tbody> */}
+                      </tbody>
                     </table>
                   </div>
                 </div>

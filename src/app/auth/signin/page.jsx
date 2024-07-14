@@ -57,12 +57,12 @@ export default function LoginPage() {
       });
   
       // Access the data property directly from the Axios response
-      const data = response.data;
-  
+      const data = response.data.data;
+      // console.log("Received data:", data);
       // Assuming data contains the response in the format { success: true, data: { ... } }
-      if (data.success && data.data) {
-        console.log(data.data.data.teamDetails);
-        storeSignIn(data.data.data.teamDetails);
+      if (data.status === "success") {
+        console.log(data.data);
+        storeSignIn(data.data.teamDetails);
         toast.success("Login success");
         router.push("/");
       } else {
@@ -122,7 +122,6 @@ export default function LoginPage() {
         <div className="right-section">
           <div className="logo">
             <h2>
-            <h2>
               <img
                 src="https://www.skillsbuildcsrbox.in/assets/img/skillbuildlogo.png"
                 className="w-64 p-4 mr-[25vh]"
@@ -130,6 +129,7 @@ export default function LoginPage() {
                 alt="IBM Logo"
               />
             </h2>
+            <h2>
               <img
                 src="https://csrbox.org/images/csrbox_logo.png"
                 className="w-48 ml-[25vh]"
