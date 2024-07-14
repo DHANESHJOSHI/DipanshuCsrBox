@@ -9,6 +9,11 @@ body {
   height: 100vh;
   margin: 0;
 }
+@media (max-width: 1920px) {
+  #IBMLogoRight{
+    display: none;
+  }
+}
 
 .right-section > h4,
 .right-section > p {
@@ -80,9 +85,20 @@ body {
   .form-control {
     font-size: 16px; /* Increased font size for better input on mobile */
   }
+  #IBMLogoRight{
+    width: 75% !important; /* Adjust width to fit small screens, or as needed */
+  }
+  #IBMLogoRight, #csrLogo {
+    display: flex;  /* Ensure the logo is displayed */
+    justify-content: center; /* Center logo in the available space */
+    width: 50%; /* Adjust width to fit small screens, or as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center horizontally */
+  }
 }
 
 .logo img {
+  display: flex;
   max-width: 100%; 
   height: auto;
 }
@@ -109,6 +125,7 @@ body {
   font-size: 1.2vh;
 }
 
+
 .loader {
   border: 5px solid #f3f3f3; 
   border-top: 5px solid #3498db; 
@@ -125,15 +142,21 @@ body {
 
 @media (max-width: 480px) {
   .login-container {
+    flex-direction: column;
     width: 100%; /* Full width for very small screens */
-    border-radius: 0; /* Remove border radius for full-width display */
+    border-radius: 0; /* Smooth edges to fit screen */
   }
 
-  .right-section {
-    padding: 1.5vh; /* Further reduced padding for very small screens */
+  .right-section >
+  #IBMLogoRight { 
+    display: flex; 
+    width: 100%; 
+    padding: 10px 0; 
+    height: auto; 
+    text-align: center;
   }
 
   .btn-primary {
-    width: 100%; /* Full-width button for very small screens */
+    width: 100%; /* Full-width button for easier interaction */
   }
 }

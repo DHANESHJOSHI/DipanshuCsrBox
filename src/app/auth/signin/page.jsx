@@ -8,6 +8,8 @@ import { useAuthStore } from "../../../store/auth";
 import { useForm } from "react-hook-form";
 import "../../../styles/login.css";
 import Image from "next/image";
+import Loader from "@/components/Loader";
+
 
 export default function LoginPage() {
 
@@ -19,6 +21,7 @@ export default function LoginPage() {
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  
   useEffect(() => {
     const fetchColleges = async () => {
       try {
@@ -102,7 +105,7 @@ export default function LoginPage() {
             <h2>
               <img
                 src="https://www.skillsbuildcsrbox.in/assets/img/skillbuildlogo.png"
-                className="w-64 p-4 "
+                className="w-64 p-4 mr-[25vh]"
                 id="IBMLogo"
                 alt="IBM Logo"
               />
@@ -119,19 +122,27 @@ export default function LoginPage() {
         <div className="right-section">
           <div className="logo">
             <h2>
+            <h2>
+              <img
+                src="https://www.skillsbuildcsrbox.in/assets/img/skillbuildlogo.png"
+                className="w-64 p-4 mr-[25vh]"
+                id="IBMLogoRight"
+                alt="IBM Logo"
+              />
+            </h2>
               <img
                 src="https://csrbox.org/images/csrbox_logo.png"
-                className="w-48 "
+                className="w-48 ml-[25vh]"
                 alt="CSR Logo"
                 id="csrLogo"
               />
             </h2>
           </div>
 
-          <h4 className="font-bold text-2xl">Welcome Students!</h4>
-          <p className="font-bold text-xl mb-2">
-            Log In to your Team Dashboard
-          </p>
+          <h4 className="font-bold text-xl">Welcome Students!</h4>
+            <p className="font-bold text-5xl mb-2">
+              Log In to your Team Dashboard
+            </p>
           <form onSubmit={handleSubmit(onLogin)}>
             <div className="form-group font-bold">
               <label className="mb-4" htmlFor="email">
