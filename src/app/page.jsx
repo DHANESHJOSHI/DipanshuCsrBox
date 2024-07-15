@@ -169,7 +169,7 @@ export default function Home() {
                                   Fill This Form
                                 </button>
                               ) : (
-                                <span>{`${item.percentage|| "PercentageNotSet" }%`}</span>
+                                <span>{`${item.percentage|| "PercentageNotSet" }%`}</span> //updated
                               )}
                             </td>
                           </tr>
