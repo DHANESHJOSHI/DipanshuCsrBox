@@ -14,7 +14,6 @@ export async function POST(request) {
       "https://script.google.com/macros/s/AKfycbyiQO7jHxe-hWsy4rpe-iLwKLTfLznzq6FPfqMcdU7Ur1yDmQV3-7Vr0RIJiWAMNvl7/exec",
       {
         method: "POST",
-        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
