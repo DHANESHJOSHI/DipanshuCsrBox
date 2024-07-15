@@ -118,14 +118,12 @@ export default function Home() {
                       <h4 className="text-[#002d9c] font-bold">Completion Percentage </h4> :
                       <p className="text-[#4f5050]">{auth?.members[0].percentage}%</p>
                     </div>
+                    {console.log(JSON.stringify(auth))}
                     <div className="flex flex-row gap-8 mt-5 mb-[-8vh]">
                       <button className="transition ease-in-out delay-150 text-sm transform hover:-translate-y-1 mt-24 md:mt-0 hover:scale-110 duration-300 py-2 px-2 md:xp-5 text-white rounded-lg bg-[#002d9c]"
+                      onClick={() => window.open(auth.finalDeliverable, "_blank")}
                       >
-                        SUBMIT CONCEPT NOTE
-                      </button>
-                      <button className=" transition ease-in-out delay-150 text-sm transform hover:-translate-y-1 mt-24 md:mt-0 hover:scale-110 duration-300 py-2 px-2 md:xp-5 text-white rounded-lg bg-[#002d9c]"
-                      >
-                      SUBMIT FINAL DELIVERABLE
+                        SUBMIT DELIVERABLES
                       </button>
                     </div>
                   </div>
