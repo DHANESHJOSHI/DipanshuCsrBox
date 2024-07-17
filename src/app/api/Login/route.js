@@ -7,10 +7,10 @@ export async function POST(request) {
 
     // Validate inputs
     if (!email || !collegeName || !internshipName) {
-      return new Response(JSON.stringify({ error: "Email, college name, and internship name are required" }), { status: 400 });
+      return NextResponse.json({ error: "Email, college name, and internship name are required" }, { status: 400 });
     }
 
-    // Call the external API
+    // Call the external API with a timeout set
     const response = await axios.post(
       "https://script.google.com/macros/s/AKfycbyiQO7jHxe-hWsy4rpe-iLwKLTfLznzq6FPfqMcdU7Ur1yDmQV3-7Vr0RIJiWAMNvl7/exec",
       { email, collegeName, internshipName },
@@ -22,16 +22,18 @@ export async function POST(request) {
     );
 
     console.log("Received data:", response.data);
-    return new Response(JSON.stringify({ success: true, data: response.data }), { status: 200 });
+    return NextResponse.json({ success: true, data: response.data }, { status: 200 });
   } catch (error) {
     console.error("Failed to post data:", error);
     if (error.response) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
-      return new Response(JSON.stringify({ error: "Failed to fetch data from external API", details: error.response.data }), { status: error.response.status });
+      return NextResponse.json({ error: "Failed to fetch data from external API", details: error.response.data }, { status: error.response.status });
+    } else if (error.code === 'ECONNABORTED') {
+      return NextResponse.json({ error: "Request timeout", details: error.message }, { status: 504 });
     } else {
       // Something happened in setting up the request and triggered an Error
-      return new Response(JSON.stringify({ error: "Internal Server Error", details: error.message }), { status: 500 });
+      return NextResponse.json({ error: "Internal Server Error", details: error.message }, { status: 500 });
     }
   }
 }
