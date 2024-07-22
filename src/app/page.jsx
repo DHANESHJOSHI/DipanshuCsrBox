@@ -90,10 +90,6 @@ export default function Home() {
                       <p className="text-[#4f5050]">{auth?.uniqueID}</p>
                     </div>
                     <div className="flex flex-row gap-2">
-                      <h4 className="text-[#002d9c] font-bold">Name</h4> :
-                      <p className="text-[#4f5050]">{auth?.members[0].name}</p>
-                    </div>
-                    <div className="flex flex-row gap-2">
                       <h4 className="text-[#002d9c] font-bold">College Name</h4> :
                       <p className="text-[#4f5050]">{auth?.members[0].collegeName}</p>
                     </div>
@@ -105,18 +101,11 @@ export default function Home() {
                       <h4 className="text-[#002d9c] font-bold">Female Members</h4> :
                       <p className="text-[#4f5050]">{auth?.femaleMembers}</p>
                     </div>
-                    <div className="flex flex-row gap-2">
-                      <h4 className="text-[#002d9c] font-bold">Email ID</h4> :
-                      <p className="text-[#4f5050]">{auth?.emailID}</p>
-                    </div>
-                    <div className="flex flex-row gap-2">
-                      <h4 className="text-[#002d9c] font-bold">Completion Percentage</h4> :
-                      <p className="text-[#4f5050]">{auth?.members[0].percentage}%</p>
-                    </div>
+
                     <div className="flex flex-row gap-8 mb-1">
                       <button
                         className="transition ease-in-out delay-150 text-sm transform hover:-translate-y-1 mt-4 md:mt-0 hover:scale-110 duration-300 py-2 px-4 text-white rounded-lg bg-[#002d9c]"
-                        onClick={() => window.open(auth.finalDeliverable, "_blank")}
+                        onClick={() => window.open(auth?.finalDeliverable, "_blank")}
                       >
                         SUBMIT DELIVERABLES
                       </button>
