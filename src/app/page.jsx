@@ -137,6 +137,7 @@ export default function Home() {
                             Course Completion
                           </th>
                         </tr>
+                        
                       </thead>
                       <tbody className="text-sm text-left rtl:text-right font-bold text-black dark:text-white">
                         {auth?.members?.map((item, index) => (
