@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const url = "https://script.google.com/macros/s/AKfycbyiQO7jHxe-hWsy4rpe-iLwKLTfLznzq6FPfqMcdU7Ur1yDmQV3-7Vr0RIJiWAMNvl7/exec";
+    const url = "https://script.google.com/macros/s/AKfycbz4H3WldJcotmxnvhCTk390o67ZZIJq92QsYgd0A-NJvmh5GD9NhYiqVQrQ0Fs8yfFr/exec";
     
     const response = await fetch(url);
     const data = await response.json();
