@@ -186,6 +186,7 @@ export default function LoginPage() {
               >
                 <option value="Front End Web Development">Front End Web Development</option>
                 <option value="Data Analytics">Data Analytics</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
               </select>
             </div>
 
