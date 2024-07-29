@@ -12,7 +12,7 @@ export async function POST(request) {
 
     // Call the external API with a timeout set
     const response = await axios.post(
-      "https://script.google.com/macros/s/AKfycbyiQO7jHxe-hWsy4rpe-iLwKLTfLznzq6FPfqMcdU7Ur1yDmQV3-7Vr0RIJiWAMNvl7/exec",
+      "https://script.google.com/macros/s/AKfycbz4H3WldJcotmxnvhCTk390o67ZZIJq92QsYgd0A-NJvmh5GD9NhYiqVQrQ0Fs8yfFr/exec",
       { email, collegeName, internshipName },
       {
         headers: {
